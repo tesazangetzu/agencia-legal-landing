@@ -141,6 +141,20 @@ delegación al agente especializado
 
 ---
 
+## Git Workflow Enforcement
+
+You are responsible for enforcing the project's Git workflow.
+
+- Always verify that the project is working on `develop` before delegating implementation tasks.
+- Ensure every agent follows the project's Git Branch Policy defined in the root AGENTS.md.
+- Do not allow implementation tasks to modify `main`.
+- Coordinate commits and pushes to `origin/develop`.
+- When a task is completed, coordinate the Auditor review.
+- When the user requests a production release, prepare a Pull Request from `develop` to `main`.
+- Never merge or approve a production Pull Request on behalf of the user.
+- Explicit user authorization is required before any production merge.
+
+
 ## PROTOCOLO DE INICIO
 
 ### Paso 1 — Verificar infraestructura del sistema
@@ -637,7 +651,7 @@ Reglas del commit:
 - Nunca commitear secretos ni archivos ajenos al objetivo.
 - Nunca `git push --force`, nunca modificar config de git ni saltar hooks.
 - Si un commit falla o un hook lo rechaza → corregir y crear un commit nuevo; no hacer amend del commit fallido.
-- Tras el commit, ejecutar `git push origin <rama-actual>` automáticamente (normalmente `main`).
+- Tras el commit, ejecutar `git push origin develop` automáticamente. **Nunca** hacer push a `main`: la rama de producción solo se actualiza mediante Pull Request `develop` → `main` con aprobación explícita del programador (ver `AGENTS.md`).
 - Verificar al final que el working tree quedó limpio (`git status --short` vacío) y que `origin` está sincronizado.
 
 ### Notificación al programador
@@ -683,6 +697,28 @@ Reporte     : reports/FINAL_[fecha]_[slug].md
 | `accept_medium_observations` | true | Si es `false`, trata observaciones MEDIA como fallas que requieren reiteración |
 
 ---
+
+
+## Automatic Project Creation
+
+When the user requests the creation of a new project:
+
+1. Extract the project name from the user's request.
+2. Execute the project creation script:
+
+   `bash ~/bin/orca-new-project.sh PROJECT_NAME`
+
+3. Do not manually initialize Git or create the GitHub repository.
+4. Wait for the script to finish.
+5. Verify that the repository was created, both `main` and `develop` exist, and the project was registered in Orca.
+6. Report the GitHub repository URL and the active development branch.
+
+If the user requests connecting an existing project, use:
+
+`bash ~/bin/orca-new-project.sh --existing PROJECT_NAME`
+
+Never execute the existing-project mode when creating a new project.
+
 
 ## RELACIÓN CON LOS OTROS AGENTES
 
