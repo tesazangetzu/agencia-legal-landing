@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout
+  title={`Página no encontrada | ${site.name}`}
+  description="La página solicitada no existe o fue movida."
+>
+  <Container>
+    <div class="grid gap-10 py-20 lg:grid-cols-12 lg:py-32">
+      <div class="lg:col-span-8">
+        <p
+          class="font-display text-6xl font-semibold text-brass"
+          aria-hidden="true"
+        >
+          404
+        </p>
+        <h1 class="mt-4 font-display text-display-xl font-semibold text-ink">
+          No encontramos esta página.
+        </h1>
+        <p class="mt-5 max-w-[52ch] text-body-lg text-graphite">
+          Es posible que el enlace haya cambiado o que la dirección esté
+          incompleta. Puedes volver al inicio o escribirnos para orientarte.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <Button href="/">Volver al inicio</Button>
+          <Button href="/#contacto" variant="secondary">Contactar</Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</BaseLayout>

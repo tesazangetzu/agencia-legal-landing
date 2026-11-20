@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/ui/Container.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout
+  title={`Aviso legal | ${site.name}`}
+  description="Información legal sobre el titular del sitio, condiciones de uso y responsabilidad."
+  canonical="/aviso-legal"
+>
+  <Container>
+    <article class="prose-legal py-16 lg:py-24">
+      <h1 class="font-display text-display-lg font-semibold text-ink">
+        Aviso legal
+      </h1>
+      <p class="text-sm text-muted">Última actualización: 19 de noviembre de 2026</p>
+      <p
+        class="border-l-2 border-brass bg-sand px-4 py-3 text-sm text-graphite"
+      >
+        Plantilla de ejemplo. Requiere revisión legal antes de publicar.
+      </p>
+
+      <h2>Titular del sitio</h2>
+      <p>
+        Este sitio es operado por {site.legalName}, con domicilio en
+        {site.address.street}, {site.address.district}, {site.address.city},
+        {site.address.country}. Puedes contactarnos en
+        <a href={`mailto:${site.email}`}>{site.email}</a> o al
+        <a href={site.phoneHref}>{site.phone}</a>.
+      </p>
+
+      <h2>Condiciones de uso</h2>
+      <p>
+        El contenido de este sitio tiene carácter informativo y no constituye
+        asesoría legal para un caso concreto. La relación profesional se
+        formaliza únicamente mediante un encargo aceptado por escrito por el
+        despacho.
+      </p>
+      <p>
+        El acceso al sitio no crea una relación abogado-cliente. No envíes
+        información confidencial hasta que exista un encargo confirmado.
+      </p>
+
+      <h2>Propiedad intelectual</h2>
+      <p>
+        Los textos, marcas, composiciones visuales y demás elementos de este
+        sitio pertenecen a {site.legalName} o se utilizan con autorización. No
+        se permite su reproducción total o parcial sin consentimiento previo.
+      </p>
+
+      <h2>Limitación de responsabilidad</h2>
+      <p>
+        Procuramos que la información publicada sea exacta y esté actualizada,
+        pero no garantizamos que esté libre de errores ni que cubra todas las
+        situaciones posibles. El uso de la información es responsabilidad de
+        quien la consulta.
+      </p>
+      <p>
+        Este sitio puede incluir enlaces a páginas de terceros. No controlamos
+        su contenido ni asumimos responsabilidad por sus prácticas o
+        políticas.
+      </p>
+
+      <h2>Legislación aplicable</h2>
+      <p>
+        Este aviso se rige por la legislación de la República del Perú. Cualquier
+        controversia derivada del uso del sitio se somete a los tribunales
+        competentes de {site.city}.
+      </p>
+    </article>
+  </Container>
+</BaseLayout>

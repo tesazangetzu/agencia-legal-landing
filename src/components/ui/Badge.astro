@@ -1,0 +1,25 @@
+---
+import { cn } from "@/lib/cn";
+
+interface Props {
+  variant?: "default" | "outline";
+  class?: string;
+}
+
+const { variant = "default", class: className } = Astro.props;
+
+const variants = {
+  default: "border-line bg-sand text-graphite",
+  outline: "border-line bg-transparent text-muted",
+};
+---
+
+<span
+  class={cn(
+    "inline-flex items-center gap-2 rounded-sm border px-3 py-1 text-xs font-medium uppercase tracking-[0.12em]",
+    variants[variant],
+    className,
+  )}
+>
+  <slot />
+</span>

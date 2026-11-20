@@ -1,0 +1,91 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/ui/Container.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout
+  title={`Política de privacidad | ${site.name}`}
+  description="Cómo trata Lex Aurea los datos de contacto recibidos a través de este sitio."
+  canonical="/privacidad"
+>
+  <Container>
+    <article class="prose-legal py-16 lg:py-24">
+      <h1 class="font-display text-display-lg font-semibold text-ink">
+        Política de privacidad
+      </h1>
+      <p class="text-sm text-muted">Última actualización: 19 de noviembre de 2026</p>
+      <p
+        class="border-l-2 border-brass bg-sand px-4 py-3 text-sm text-graphite"
+      >
+        Plantilla de ejemplo. Requiere revisión legal antes de publicar.
+      </p>
+
+      <h2>Responsable del tratamiento</h2>
+      <p>
+        {site.legalName}, con domicilio en {site.address.street},
+        {site.address.district}, {site.address.city}, {site.address.country}, es
+        responsable de los datos personales que recibimos por los canales de
+        contacto directo publicados en este sitio. Puedes escribirnos a
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Datos que tratamos</h2>
+      <p>
+        El formulario de este sitio es una demostración: <strong>no envía ni
+        almacena información</strong>. Los campos que ves no se transmiten a
+        ningún servidor, base de datos ni servicio de terceros.
+      </p>
+      <p>
+        Solo tratamos los datos que decidas compartir voluntariamente cuando nos
+        contactas por correo electrónico, teléfono o WhatsApp, como tu nombre,
+        datos de contacto y el contenido de tu consulta.
+      </p>
+
+      <h2>Finalidad y base legal</h2>
+      <p>
+        Utilizamos esos datos para responder a tu consulta, evaluar si podemos
+        asumir el encargo y, si corresponde, gestionar la relación profesional.
+        La base legal es tu consentimiento al iniciar el contacto y, cuando
+        exista un encargo, la ejecución de la relación contractual.
+      </p>
+
+      <h2>Conservación</h2>
+      <p>
+        Conservamos los datos de contacto durante el tiempo necesario para
+        atender la consulta y, si se formaliza un encargo, durante los plazos
+        que exijan las obligaciones legales y profesionales aplicables.
+      </p>
+
+      <h2>Derechos</h2>
+      <p>
+        Puedes solicitar acceso, rectificación, cancelación u oposición al
+        tratamiento de tus datos escribiendo a
+        <a href={`mailto:${site.email}`}>{site.email}</a>. Responderemos según
+        los plazos y procedimientos previstos en la normativa peruana de
+        protección de datos personales.
+      </p>
+
+      <h2>Cookies y analítica</h2>
+      <p>
+        Este sitio no utiliza cookies de analítica, publicidad o marketing, ni
+        carga servicios de terceros que rastreen tu navegación. No se realiza
+        perfilado de visitantes.
+      </p>
+
+      <h2>Cambios en esta política</h2>
+      <p>
+        Podemos actualizar esta política para reflejar cambios en el sitio o en
+        la normativa aplicable. Publicaremos la versión vigente en esta misma
+        página con su fecha de actualización.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        Para cualquier consulta sobre privacidad, escríbenos a
+        <a href={`mailto:${site.email}`}>{site.email}</a> o llámanos al
+        <a href={site.phoneHref}>{site.phone}</a>.
+      </p>
+    </article>
+  </Container>
+</BaseLayout>

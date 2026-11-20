@@ -1,0 +1,79 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Icon from "@/components/ui/Icon.astro";
+---
+
+<section id="inicio" class="overflow-hidden bg-ivory">
+  <Container>
+    <div
+      class="grid items-center gap-14 py-14 sm:py-16 lg:grid-cols-12 lg:gap-12 lg:py-24"
+    >
+      <div class="lg:col-span-7">
+        <p
+          class="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-brass-deep"
+        >
+          <span class="h-1.5 w-1.5 bg-brass" aria-hidden="true"></span>
+          Despacho de abogados · Lima, Perú
+        </p>
+
+        <h1 class="mt-6 font-display text-display-xl font-semibold text-ink">
+          Asesoría legal para decidir con seguridad<span class="text-brass"
+            >.</span
+          >
+        </h1>
+
+        <p class="mt-6 max-w-[52ch] text-body-lg text-graphite">
+          Acompañamos a empresas y personas en asuntos corporativos, civiles y
+          laborales, con criterio estratégico y un trato directo.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <Button href="#contacto">
+            Agendar consulta
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </Button>
+          <Button href="#servicios" variant="secondary">
+            Conocer servicios
+          </Button>
+        </div>
+
+        <ul
+          class="mt-9 flex flex-col gap-2 text-sm text-muted sm:flex-row sm:gap-8"
+        >
+          <li class="flex items-center gap-2">
+            <span class="h-px w-4 bg-brass-deep" aria-hidden="true"></span>
+            Primera conversación sin compromiso
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-px w-4 bg-brass-deep" aria-hidden="true"></span>
+            Confidencialidad desde el primer contacto
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-5">
+        <figure class="relative">
+          <div
+            class="absolute -left-3 -top-3 hidden h-full w-full border border-brass/60 sm:block"
+            aria-hidden="true"
+          >
+          </div>
+          <img
+            src="/images/hero-despacho.webp"
+            width="1600"
+            height="1200"
+            alt="Composición editorial con formas arquitectónicas en marfil, tinta y latón."
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="relative block aspect-[4/3] w-full rounded-sm border border-line object-cover"
+          />
+          <figcaption class="mt-3 text-xs text-muted">
+            Imagen de referencia. Pendiente de fotografía definitiva.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </Container>
+</section>

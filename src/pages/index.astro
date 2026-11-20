@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Services from "@/components/sections/Services.astro";
+import Team from "@/components/sections/Team.astro";
+import Process from "@/components/sections/Process.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
+import Faq from "@/components/sections/Faq.astro";
+import ContactForm from "@/components/sections/ContactForm.astro";
+import Contact from "@/components/sections/Contact.astro";
+import { legalServiceJsonLd } from "@/lib/seo";
+
+const description =
+  "Asesoría legal en derecho corporativo, civil y laboral. Conoce al equipo y agenda una consulta con Lex Aurea.";
+const jsonLd = legalServiceJsonLd();
+---
+
+<BaseLayout
+  description={description}
+  imagePreload="/images/hero-despacho.webp"
+  jsonLd={jsonLd}
+>
+  <Hero />
+  <Services />
+  <Team />
+  <Process />
+  <Testimonials />
+  <Faq />
+  <ContactForm />
+  <Contact />
+</BaseLayout>

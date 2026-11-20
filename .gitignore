@@ -1,0 +1,44 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.*
+
+# Builds y artefactos de Astro
+dist/
+.astro/
+.output/
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# Entornos
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Configuración local de agentes / dependencias del tooling
+.opencode/node_modules/
+.opencode/package-lock.json
+.opencode/bun.lock
+
+# Artefacto derivado regenerable (knowledge graph de Graphify)
+graphify-out/
+
+# Reportes locales de agentes
+reports/

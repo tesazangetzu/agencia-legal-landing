@@ -1,0 +1,49 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Badge from "@/components/ui/Badge.astro";
+import { testimonials } from "@/data/testimonials";
+---
+
+<section id="testimonios" class="bg-ivory py-16 lg:py-[6.5rem]">
+  <Container>
+    <SectionHeading
+      eyebrow="Testimonios"
+      title="Lo que valoran quienes trabajan con nosotros."
+      description="La confianza se construye con claridad, disponibilidad y decisiones bien documentadas."
+    />
+
+    <div class="mt-8">
+      <Badge variant="outline">
+        Testimonios ilustrativos. Se publicarán solo con autorización de las
+        personas mencionadas.
+      </Badge>
+    </div>
+
+    <div class="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-3 lg:gap-8">
+      {
+        testimonials.map((testimonial) => (
+          <figure class="border-t border-line pt-8">
+            <p
+              class="font-display text-4xl leading-none text-brass"
+              aria-hidden="true"
+            >
+              &ldquo;
+            </p>
+            <blockquote class="mt-3 font-display text-2xl leading-snug text-ink">
+              <p>{testimonial.quote}</p>
+            </blockquote>
+            <figcaption class="mt-6">
+              <span class="block text-sm font-medium text-ink">
+                {testimonial.attribution}
+              </span>
+              <span class="mt-1 block text-xs uppercase tracking-[0.12em] text-muted">
+                {testimonial.context}
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </Container>
+</section>

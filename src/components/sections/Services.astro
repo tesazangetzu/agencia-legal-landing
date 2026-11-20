@@ -1,0 +1,35 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Card from "@/components/ui/Card.astro";
+import Icon from "@/components/ui/Icon.astro";
+import { services } from "@/data/services";
+---
+
+<section id="servicios" class="bg-sand py-16 lg:py-[6.5rem]">
+  <Container>
+    <SectionHeading
+      eyebrow="Áreas de práctica"
+      title="Servicios legales para cada etapa de tu decisión."
+      description="Trabajamos asuntos corporativos, civiles y laborales con un enfoque preventivo: ordenar antes de litigar y documentar antes de firmar."
+    />
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+      {
+        services.map((service) => (
+          <Card class="flex flex-col">
+            <span class="flex h-11 w-11 items-center justify-center rounded-sm border border-line bg-sand text-brass-deep">
+              <Icon name={service.icon} />
+            </span>
+            <h3 class="mt-6 font-display text-2xl font-semibold text-ink">
+              {service.title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-graphite">
+              {service.description}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </Container>
+</section>

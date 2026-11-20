@@ -1,0 +1,112 @@
+---
+import Container from "@/components/ui/Container.astro";
+import { navigation, site } from "@/data/site";
+
+const year = new Date().getFullYear();
+const base = Astro.url.pathname === "/" ? "" : "/";
+const navHref = (href: string) => (href.startsWith("#") ? `${base}${href}` : href);
+---
+
+<footer class="bg-ink text-ivory">
+  <Container>
+    <div class="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
+      <div class="lg:col-span-1">
+        <p
+          class="font-display text-2xl font-semibold uppercase tracking-[0.08em]"
+        >
+          {site.name}
+        </p>
+        <p class="mt-4 max-w-[28ch] text-sm leading-relaxed text-ivory/75">
+          {site.tagline}. {site.city}, {site.country}.
+        </p>
+        <div class="mt-6 h-px w-12 bg-brass" aria-hidden="true"></div>
+      </div>
+
+      <nav aria-label="Secciones del sitio">
+        <h2
+          class="text-xs font-medium uppercase tracking-[0.18em] text-brass-light"
+        >
+          Secciones
+        </h2>
+        <ul class="mt-5 space-y-3 text-sm">
+          {
+            navigation.map((item) => (
+              <li>
+                <a
+                  href={navHref(item.href)}
+                  class="text-ivory/80 transition-colors duration-150 hover:text-brass-light focus-visible:outline-brass-light motion-reduce:transition-none"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-label="Información legal">
+        <h2
+          class="text-xs font-medium uppercase tracking-[0.18em] text-brass-light"
+        >
+          Legal
+        </h2>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li>
+            <a
+              href="/aviso-legal"
+              class="text-ivory/80 transition-colors duration-150 hover:text-brass-light focus-visible:outline-brass-light motion-reduce:transition-none"
+            >
+              Aviso legal
+            </a>
+          </li>
+          <li>
+            <a
+              href="/privacidad"
+              class="text-ivory/80 transition-colors duration-150 hover:text-brass-light focus-visible:outline-brass-light motion-reduce:transition-none"
+            >
+              Política de privacidad
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2
+          class="text-xs font-medium uppercase tracking-[0.18em] text-brass-light"
+        >
+          Contacto
+        </h2>
+        <address class="mt-5 space-y-3 text-sm not-italic text-ivory/80">
+          <p>
+            {site.address.street}<br />
+            {site.address.district}, {site.address.city}
+          </p>
+          <p>
+            <a
+              href={site.phoneHref}
+              class="transition-colors duration-150 hover:text-brass-light focus-visible:outline-brass-light motion-reduce:transition-none"
+              >{site.phone}</a
+            >
+          </p>
+          <p>
+            <a
+              href={`mailto:${site.email}`}
+              class="transition-colors duration-150 hover:text-brass-light focus-visible:outline-brass-light motion-reduce:transition-none"
+              >{site.email}</a
+            >
+          </p>
+        </address>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-3 border-t border-ivory/15 py-8 text-xs text-ivory/60 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {site.legalName}. Todos los derechos reservados.</p>
+      <p>
+        Sitio de demostración. Los textos legales requieren revisión antes de
+        publicar.
+      </p>
+    </div>
+  </Container>
+</footer>

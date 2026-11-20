@@ -1,0 +1,44 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+import { faqs } from "@/data/faq";
+---
+
+<section id="faq" class="bg-sand py-16 lg:py-[6.5rem]">
+  <Container>
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <SectionHeading
+          eyebrow="Preguntas frecuentes"
+          title="Antes de la primera reunión."
+          description="Las dudas más comunes sobre la consulta, los honorarios y la forma de trabajo."
+        />
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="border-t border-line">
+          {
+            faqs.map((faq, index) => (
+              <details
+                class="group border-b border-line"
+                open={index === 0}
+              >
+                <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-medium text-ink transition-colors duration-150 hover:text-brass-deep motion-reduce:transition-none [&::-webkit-details-marker]:hidden">
+                  {faq.question}
+                  <Icon
+                    name="plus"
+                    class="h-5 w-5 shrink-0 text-brass-deep transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
+                  />
+                </summary>
+                <p class="max-w-[68ch] pb-6 pr-8 text-body text-graphite">
+                  {faq.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
